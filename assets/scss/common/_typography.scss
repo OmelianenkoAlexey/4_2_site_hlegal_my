@@ -22,10 +22,7 @@ html {
 }
 
 body {
-  // color: $color-primary-black;
-  color: #ACA592;
-
-  font-family: 'Old Standard TT', serif;
+  color: $color-black;
    // размер текста по умолчанию
   font-size: 13px;
   font-weight: normal;
@@ -33,5 +30,5 @@ body {
 
 a {
   text-decoration: none;
-  // color: $color-primary-black;
+  color: $color-black;
 }

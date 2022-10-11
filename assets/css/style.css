@@ -207,15 +207,16 @@ html {
 }
 
 body {
-  color: #aca592;
+  color: #000000;
 
-  font-family: "Old Standard TT", serif;
   font-size: 13px;
   font-weight: normal;
 }
 
 a {
   text-decoration: none;
+
+  color: #000000;
 }
 
 .container {
@@ -232,14 +233,16 @@ a {
           transition: 0.5s;
 }
 
-.header {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-      flex-direction: column;
-
+.page-header {
   min-height: 100vh;
+
+  background: -o-linear-gradient(48deg, #323264 14%, #323264 51%, #7a425e 88%);
+  background:    linear-gradient(42deg, #323264 14%, #323264 51%, #7a425e 88%);
+}
+.page-header__grid {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  left: 0;
 }
