@@ -2,6 +2,7 @@
 @use "../../../mixins" as *;
 
 .page-header {
+  position: relative;
   background: $bg-gradient-1;
   // св-во привязано к высоте экрана
   // display: flex;
@@ -9,11 +10,39 @@
   // flex-direction: column;
   // *высота блока header на весь экран
   min-height: 100vh;
+// !при выходе за границы блока все скрывает
+  overflow: hidden;
+
+  // !размещаем задний белый фон
+  &::before {
+    content: "";
+    // background-color: red;
+    background-image: url(../img/header-bg2.svg), url(../img/header-bg2.svg);
+    // !не повторять картинку
+    background-repeat: no-repeat;
+    background-position: 50% 100%, 0% -100%;
+    background-size: 85vh, 70vh;
+
+    position: absolute;
+    // !заменяет top, bottom, left, right
+    inset: 0;
+    // !или используем mixins
+    // @include abs-position;
+  }
+
+        // !размещаем размыленность внизу буквы Р
+  &::after {
+    content: "";
+    // background-color: green;
+    background: linear-gradient(180deg, rgba(50, 50, 100, 0) 16.67%, #323264 100%);
+    @include abs-position(70%);
+  }
 
   &__grid {
     // !ограничевающий контейнер, его св-ва в extends
     // !но лучше предусматривать container в index.html
     @extend %container;
+    padding-top: 50px;
 
     position: absolute;
     z-index: 2;
@@ -33,7 +62,9 @@
 
     &-link {}
 
-    &-image {}
+    &-image {
+
+    }
   }
 
   &__menu {
@@ -42,5 +73,48 @@
 
   &__actions {
     grid-area: actions;
+  }
+
+  &__content {
+    @extend %container;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &-image {
+            // transform: translateY(33%);
+            position: absolute;
+            bottom: 0;
+            transform: scale(1.2);
+    }
+
+    &-title {
+      position: relative;
+
+      font-size: 38px;
+      font-weight: 500;
+      line-height: 45px;
+      text-align: center;
+      color: $color-white;
+
+      padding: $gap;
+      max-width: 650px;
+    }
+
+  }
+
+  &__button {
+    cursor: pointer;
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: $gap;
+
+    &-link {}
+
+    &-image {}
+
   }
 }
