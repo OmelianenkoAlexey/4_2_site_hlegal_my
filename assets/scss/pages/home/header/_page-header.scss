@@ -11,23 +11,36 @@
   min-height: 100vh;
 
   &__grid {
+    // !ограничевающий контейнер, его св-ва в extends
+    // !но лучше предусматривать container в index.html
+    @extend %container;
+
     position: absolute;
     z-index: 2;
     top: 0;
     left: 0;
     right: 0;
-    
+
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-areas: "logo actions"
+      "logo menu";
+
   }
 
   &__logo {
+    grid-area: logo;
 
     &-link {}
 
     &-image {}
-
   }
 
+  &__menu {
+    grid-area: menu;
+  }
 
-  &__menu {}
-
+  &__actions {
+    grid-area: actions;
+  }
 }

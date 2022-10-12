@@ -2,12 +2,20 @@
 @use "../../../mixins" as *;
 
 .menu {
+   justify-self: end;
 
-    &__list {}
+    &__list {
+        // !список ul делает не списком
+        @include unlist;
+         display: flex;
+        justify-content: flex-end;
+    gap: 15px;
+    }
 
     &__item {}
 
     &__link {}
 }
+
 
 .active {}

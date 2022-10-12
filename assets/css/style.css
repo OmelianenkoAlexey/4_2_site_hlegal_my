@@ -190,6 +190,13 @@ template {
   src: url("TTNorms-Regular.eot");
   src: local("TT Norms Regular"), local("TTNorms-Regular"), url("../fonts/TTNorms-Regular.woff2") format("woff2");
 }
+.page-header__grid {
+  max-width: 1360px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 20px;
+  padding-left: 20px;
+}
 *,
 *::before,
 *::after {
@@ -216,7 +223,7 @@ body {
 a {
   text-decoration: none;
 
-  color: #000000;
+  color: #ffffff;
 }
 
 .container {
@@ -245,4 +252,47 @@ a {
   top: 0;
   right: 0;
   left: 0;
+
+  display: grid;
+
+  grid-template-areas: "logo actions" "logo menu";
+  grid-template-columns: auto 1fr;
+}
+.page-header__logo {
+  grid-area: logo;
+}
+.page-header__menu {
+  grid-area: menu;
+}
+.page-header__actions {
+  grid-area: actions;
+}
+
+.menu {
+  justify-self: end;
+}
+.menu__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+
+  gap: 15px;
+}
+.actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+
+  gap: 20px;
 }

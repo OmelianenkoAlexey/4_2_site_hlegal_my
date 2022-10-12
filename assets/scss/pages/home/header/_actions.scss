@@ -1,7 +1,23 @@
 @use "../../../presets" as *;
 @use "../../../mixins" as *;
 
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    &__language {
+        &-link {}
+    }
 
-.header-content {
-  
+    &__locations {}
+
+    &__phones {
+        &-link {}
+    }
+
+    &__socials {
+        &-link {}
+
+        &-image {}
+    }
 }
