@@ -51,6 +51,7 @@
     right: 0;
 
     display: grid;
+    gap: 20px;
     grid-template-columns: auto 1fr;
     grid-template-areas: "logo actions"
       "logo menu";
