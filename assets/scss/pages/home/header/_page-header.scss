@@ -10,7 +10,7 @@
   // flex-direction: column;
   // *высота блока header на весь экран
   min-height: 100vh;
-// !при выходе за границы блока все скрывает
+  // !при выходе за границы блока все скрывает
   overflow: hidden;
 
   // !размещаем задний белый фон
@@ -30,7 +30,7 @@
     // @include abs-position;
   }
 
-        // !размещаем размыленность внизу буквы Р
+  // !размещаем размыленность внизу буквы Р
   &::after {
     content: "";
     // background-color: green;
@@ -42,7 +42,7 @@
     // !ограничевающий контейнер, его св-ва в extends
     // !но лучше предусматривать container в index.html
     @extend %container;
-    padding-top: 50px;
+
 
     position: absolute;
     z-index: 2;
@@ -53,9 +53,20 @@
     display: grid;
     gap: 20px;
     grid-template-columns: auto 1fr;
-    grid-template-areas: "logo actions"
-      "logo menu";
 
+
+    @include md-min {
+      padding-top: 50px;
+      grid-template-areas: "logo actions"
+        "logo menu";
+    }
+
+    @include md {
+      padding-top: 20px;
+grid-template-areas: "actions actions"
+    "logo menu";
+
+    }
   }
 
   &__logo {
@@ -63,9 +74,7 @@
 
     &-link {}
 
-    &-image {
-
-    }
+    &-image {}
   }
 
   &__menu {
@@ -84,10 +93,10 @@
     justify-content: center;
 
     &-image {
-            // transform: translateY(33%);
-            position: absolute;
-            bottom: 0;
-            transform: scale(1.2);
+      // transform: translateY(33%);
+      position: absolute;
+      bottom: 0;
+      transform: scale(1.2);
     }
 
     &-title {
