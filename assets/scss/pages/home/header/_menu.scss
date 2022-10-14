@@ -7,20 +7,41 @@
     &__list {
         // !список ul делает не списком
         @include unlist;
-        display: flex;
-        justify-content: flex-end;
+
         gap: 15px;
 
         @include md {
             flex-wrap: wrap;
         }
 
+        @include sm-min {
+            display: flex;
+            justify-content: flex-end;
+        }
+
         @include sm {
             display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            height: 50vh;
+            background: linear-gradient(180deg, rgba(50, 50, 100, 0) 16.67%, #323264 100%);
+            // box-shadow: 0 0 10px #323264;
+
         }
     }
 
-    &__item {}
+    &__item {
+        @include sm {
+            padding: 8px;
+            margin-left: 20px;
+            margin-right: 20px;
+            margin-top: 20px;
+            background-color: #f0145a;
+            border-radius: 10px;
+        }
+    }
 
     &__link {
         font-weight: 400;
@@ -31,8 +52,112 @@
         &:hover {
             color: $color-accent;
         }
+
+        @include sm {
+            font-weight: 500;
+        }
     }
 }
 
 .active {}
 
+
+.header-menu__btn {
+    cursor: pointer;
+    color: #FFFFFF;
+    width: 183px;
+    height: 44px;
+    line-height: 150%;
+    text-align: center;
+    background: linear-gradient(94.26deg, #C89AFC 9.51%, #7C6AFA 90.23%);
+    border-radius: 50px;
+    border: none;
+    transition: 0.5s;
+
+    &:hover {
+        box-shadow: 0 0 10px #C89AFC;
+    }
+}
+
+/* Icon 1 */
+// !вместо id #nav-icon1 ставим имя своего класса
+// !обязательно прописываем название класса в файле js
+
+.header-navbar__btn {
+    position: relative;
+    // *уменьшаем физические габариты гамбургерга, уменьшаем в два раза (делим размеры на 2)
+    // width: 60px;
+
+    width: 30px;
+    // height: 45px;
+    height: 22.5px;
+    // margin: 50px auto;
+    // margin: 25px auto;
+
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+    transform: rotate(0deg);
+    // гамбургер отображается менше 768px
+
+    @include sm-min {
+        display: none;
+    }
+
+    span {
+        position: absolute;
+        left: 0;
+        // *уменьшаем физические размеры шрифта, уменьшаем в два раза (делим размеры на 2)
+
+        display: block;
+
+        width: 100%;
+        // height: 9px;
+        height: 5px;
+
+        transition: 0.25s ease-in-out;
+        transform: rotate(0deg);
+
+        opacity: 1;
+        // border-radius: 9px;
+        border-radius: 3px;
+        background: #7C6AFA;
+
+        // можно поменять цвета
+        &:nth-child(1) {
+            top: 0;
+            // background: #a4a14a;
+        }
+
+        &:nth-child(2) {
+            // top: 18px;
+            top: 9px;
+            // background: #ffc500;
+        }
+
+        &:nth-child(3) {
+            // top: 36px;
+            top: 18px;
+            // background: #ff6336;
+        }
+    }
+
+    &.open span:nth-child(1) {
+        // top: 18px;
+        top: 9px;
+
+        transform: rotate(135deg);
+    }
+
+    &.open span:nth-child(2) {
+        // left: -60px;
+        left: -30px;
+
+        opacity: 0;
+    }
+
+    &.open span:nth-child(3) {
+        // top: 18px;
+        top: 9px;
+        transform: rotate(-135deg);
+    }
+}

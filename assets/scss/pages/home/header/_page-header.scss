@@ -63,8 +63,8 @@
 
     @include md {
       padding-top: 20px;
-grid-template-areas: "actions actions"
-    "logo menu";
+      grid-template-areas: "actions actions"
+        "logo menu";
 
     }
   }
@@ -72,9 +72,19 @@ grid-template-areas: "actions actions"
   &__logo {
     grid-area: logo;
 
+
     &-link {}
 
-    &-image {}
+    &-image {
+
+      @include md-min {
+        max-width: 155px;
+      }
+
+      @include md {
+        max-width: 78px;
+      }
+    }
   }
 
   &__menu {
