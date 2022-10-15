@@ -419,7 +419,7 @@ a {
 
   opacity: 1;
   border-radius: 3px;
-  background: #7c6afa;
+  background: #ef145a;
 }
 .header-navbar__btn span:nth-child(1) {
   top: 0;
@@ -575,7 +575,7 @@ a {
     padding: 8px;
 
     border-radius: 10px;
-    background-color: #f0145a;
+    background-color: #ef145a;
   }
   .menu__link {
     font-weight: 500;
