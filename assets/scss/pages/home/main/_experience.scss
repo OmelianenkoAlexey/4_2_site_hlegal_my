@@ -1,5 +1,109 @@
 @use "../../../presets" as *;
 @use "../../../mixins" as *;
 
+.page-main {}
+
+.experience {
+    background-color: $color-primary;
+    padding-top: 80px;
+    padding-bottom: 80px;
+
+    &-container {
+        @extend %container;
+    }
+}
+
+.slider {
+    display: flex;
+    gap: 80px;
+
+    &__headers {
+        background-color: green;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        flex-basis: 0;
+            flex-grow: 2;
+
+        &::after {
+            content: "";
+            position: absolute;
+            width: 4px;
+            height: 100%;
+            right: -42px;
+            background-color: $color-gray-separator;
+        }
+
+    }
+
+    &__header {
+        font-size: 42px;
+        line-height: 50px;
+        text-align: right;
+        color: $color-gray-text;
 
 
+
+        &.active {
+            position: relative;
+            // !меняем 0.84% на 33% т.к. градиент идет на все строку, а унас слово начинается с середины
+            // background: linear-gradient(90deg, #EF8080 0.84%, #F0145A 100%);
+            background: linear-gradient(90deg, #EF8080 33%, #F0145A 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+
+            &::after {
+                content: "";
+                position: absolute;
+                z-index: 1;
+                width: 4px;
+                height: 100%;
+                right: -42px;
+                background-color: $color-accent;
+            }
+        }
+    }
+
+    &__notes {
+        background-color: blue;
+        display: flex;
+        align-items: center;
+        flex-basis: 0;
+        flex-grow: 3;
+    }
+
+    &__note {
+        // !скрывает
+        display: none;
+        max-width: 600px;
+
+        &.active {
+            // !отображает
+            display: block;
+        }
+
+        &-title {
+            font-size: 32px;
+            line-height: 38px;
+            color: #FFFFFF;
+            margin-bottom: 20px;
+        }
+
+        &-description {
+            font-size: 21px;
+            line-height: 30px;
+            color: #FFFFFF;
+        }
+    }
+
+    &__indicators {
+        display: none;
+    }
+
+    &__indicator {
+        &.active {}
+    }
+}

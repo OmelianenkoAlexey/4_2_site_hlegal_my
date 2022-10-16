@@ -190,6 +190,7 @@ template {
   src: url("TTNorms-Regular.eot");
   src: local("TT Norms Regular"), local("TTNorms-Regular"), url("../fonts/TTNorms-Regular.woff2") format("woff2");
 }
+.experience-container,
 .page-header__grid,
 .page-header__content {
   max-width: 1360px;
@@ -499,6 +500,122 @@ a {
 }
 .actions__phones-link:hover {
   color: #ef145a;
+}
+.experience {
+  padding-top: 80px;
+  padding-bottom: 80px;
+
+  background-color: #323264;
+}
+.slider {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+
+  gap: 80px;
+}
+.slider__headers {
+  position: relative;
+
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 2;
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-positive: 2;
+  flex-grow: 2;
+
+  background-color: green;
+
+  gap: 20px;
+}
+.slider__headers::after {
+  position: absolute;
+  right: -42px;
+
+  width: 4px;
+  height: 100%;
+
+  content: "";
+
+  background-color: #e5e5ef;
+}
+.slider__header {
+  text-align: right;
+
+  color: #b2b2b9;
+
+  font-size: 42px;
+  line-height: 50px;
+}
+.slider__header.active {
+  position: relative;
+
+  background: -webkit-gradient(linear, left top, right top, color-stop(33%, #ef8080), to(#f0145a));
+  background: -o-linear-gradient(left, #ef8080 33%, #f0145a 100%);
+  background:    linear-gradient(90deg, #ef8080 33%, #f0145a 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+          text-fill-color: transparent;
+}
+.slider__header.active::after {
+  position: absolute;
+  z-index: 1;
+  right: -42px;
+
+  width: 4px;
+  height: 100%;
+
+  content: "";
+
+  background-color: #ef145a;
+}
+.slider__notes {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -ms-flex-align: center;
+  -webkit-box-flex: 3;
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -ms-flex-positive: 3;
+  flex-grow: 3;
+
+  background-color: blue;
+}
+.slider__note {
+  display: none;
+
+  max-width: 600px;
+}
+.slider__note.active {
+  display: block;
+}
+.slider__note-title {
+  margin-bottom: 20px;
+
+  color: #ffffff;
+
+  font-size: 32px;
+  line-height: 38px;
+}
+.slider__note-description {
+  color: #ffffff;
+
+  font-size: 21px;
+  line-height: 30px;
+}
+.slider__indicators {
+  display: none;
 }
 @media (min-width: 576px) {
   .menu__list {
