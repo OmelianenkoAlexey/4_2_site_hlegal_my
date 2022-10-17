@@ -525,8 +525,6 @@ a {
   -ms-flex-positive: 2;
   flex-grow: 2;
 
-  background-color: green;
-
   gap: 20px;
 }
 .slider__header {
@@ -536,10 +534,11 @@ a {
 }
 .slider__header.active {
   position: relative;
-
-  background: -webkit-gradient(linear, left top, right top, color-stop(33%, #ef8080), to(#f0145a));
-  background: -o-linear-gradient(left, #ef8080 33%, #f0145a 100%);
-  background:    linear-gradient(90deg, #ef8080 33%, #f0145a 100%);
+}
+.slider__header.active span {
+  background: -webkit-gradient(linear, left top, right top, from(#ef8080), to(#f0145a));
+  background: -o-linear-gradient(left, #ef8080 0%, #f0145a 100%);
+  background:    linear-gradient(90deg, #ef8080 0%, #f0145a 100%);
   -webkit-background-clip: text;
           background-clip: text;
 
@@ -558,13 +557,9 @@ a {
   flex-basis: 0;
   -ms-flex-positive: 3;
   flex-grow: 3;
-
-  background-color: blue;
 }
 .slider__note {
   display: none;
-
-  max-width: 600px;
 }
 .slider__note.active {
   display: block;
@@ -647,6 +642,9 @@ a {
 
     background-color: #ef145a;
   }
+  .slider__note {
+    max-width: 600px;
+  }
   .slider__indicators {
     display: none;
   }
@@ -666,6 +664,16 @@ a {
     display: none;
 
     font-size: 14px;
+  }
+  .slider__header span {
+    background: -webkit-gradient(linear, left top, right top, from(#ef8080), to(#f0145a));
+    background: -o-linear-gradient(left, #ef8080 0%, #f0145a 100%);
+    background:    linear-gradient(90deg, #ef8080 0%, #f0145a 100%);
+    -webkit-background-clip: text;
+            background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+            text-fill-color: transparent;
   }
   .slider__header.active {
     display: block;

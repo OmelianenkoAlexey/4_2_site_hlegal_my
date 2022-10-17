@@ -6,7 +6,6 @@
 .experience {
     background-color: $color-primary;
 
-
     @include lg-min {
         padding-top: 80px;
         padding-bottom: 80px;
@@ -25,7 +24,6 @@
 .slider {
     display: flex;
 
-
     @include lg-min {
         gap: 80px;
     }
@@ -35,7 +33,6 @@
     }
 
     &__headers {
-        background-color: green;
         position: relative;
         display: flex;
         flex-direction: column;
@@ -53,14 +50,11 @@
                 background-color: $color-gray-separator;
             }
         }
-
     }
 
     &__header {
 
-
         line-height: 50px;
-
         color: $color-gray-text;
 
         @include lg-min {
@@ -71,23 +65,18 @@
         @include lg {
             display: none;
             font-size: 14px;
+
+            span {
+                background: linear-gradient(90deg, #EF8080 0%, #F0145A 100%);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    background-clip: text;
+                    text-fill-color: transparent;
+            }
         }
-
-
 
         &.active {
             position: relative;
-            // !меняем 0.84% на 33% т.к. градиент идет на все строку, а унас слово начинается с середины
-            // background: linear-gradient(90deg, #EF8080 0.84%, #F0145A 100%);
-            background: linear-gradient(90deg, #EF8080 33%, #F0145A 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-fill-color: transparent;
-
-            @include lg {
-                display: block;
-            }
 
             @include lg-min {
                 &::after {
@@ -101,11 +90,21 @@
                 }
             }
 
+            @include lg {
+                display: block;
+            }
+
+            span {
+                background: linear-gradient(90deg, #EF8080 0%, #F0145A 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                text-fill-color: transparent;
+            }
         }
     }
 
     &__notes {
-        background-color: blue;
         display: flex;
         align-items: center;
         flex-basis: 0;
@@ -115,7 +114,10 @@
     &__note {
         // !скрывает
         display: none;
-        max-width: 600px;
+
+        @include lg-min {
+            max-width: 600px;
+        }
 
         &.active {
             // !отображает
@@ -179,7 +181,6 @@
                 background: #24A3FF;
                 opacity: 1;
             }
-
         }
     }
 }
