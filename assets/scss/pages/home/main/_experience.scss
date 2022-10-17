@@ -5,8 +5,17 @@
 
 .experience {
     background-color: $color-primary;
-    padding-top: 80px;
-    padding-bottom: 80px;
+
+
+    @include lg-min {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    @include lg {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
 
     &-container {
         @extend %container;
@@ -15,7 +24,15 @@
 
 .slider {
     display: flex;
-    gap: 80px;
+
+
+    @include lg-min {
+        gap: 80px;
+    }
+
+    @include lg {
+        flex-direction: column;
+    }
 
     &__headers {
         background-color: green;
@@ -24,24 +41,37 @@
         flex-direction: column;
         gap: 20px;
         flex-basis: 0;
-            flex-grow: 2;
+        flex-grow: 2;
 
-        &::after {
-            content: "";
-            position: absolute;
-            width: 4px;
-            height: 100%;
-            right: -42px;
-            background-color: $color-gray-separator;
+        @include lg-min {
+            &::after {
+                content: "";
+                position: absolute;
+                width: 4px;
+                height: 100%;
+                right: -42px;
+                background-color: $color-gray-separator;
+            }
         }
 
     }
 
     &__header {
-        font-size: 42px;
+
+
         line-height: 50px;
-        text-align: right;
+
         color: $color-gray-text;
+
+        @include lg-min {
+            text-align: right;
+            font-size: 42px;
+        }
+
+        @include lg {
+            display: none;
+            font-size: 14px;
+        }
 
 
 
@@ -55,15 +85,22 @@
             background-clip: text;
             text-fill-color: transparent;
 
-            &::after {
-                content: "";
-                position: absolute;
-                z-index: 1;
-                width: 4px;
-                height: 100%;
-                right: -42px;
-                background-color: $color-accent;
+            @include lg {
+                display: block;
             }
+
+            @include lg-min {
+                &::after {
+                    content: "";
+                    position: absolute;
+                    z-index: 1;
+                    width: 4px;
+                    height: 100%;
+                    right: -42px;
+                    background-color: $color-accent;
+                }
+            }
+
         }
     }
 
@@ -90,20 +127,59 @@
             line-height: 38px;
             color: #FFFFFF;
             margin-bottom: 20px;
+
+            @include lg {
+                font-size: 22px;
+            }
         }
 
         &-description {
             font-size: 21px;
             line-height: 30px;
             color: #FFFFFF;
+
+            @include lg {
+                font-size: 18px;
+                margin-bottom: 20px;
+            }
         }
     }
 
     &__indicators {
-        display: none;
+
+        @include lg-min {
+            display: none;
+        }
+
+        @include lg {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+        }
+
     }
 
     &__indicator {
-        &.active {}
+
+        // !include lg ставить НЕ ОБЯЗАТЕЛЬНО, у нас весь блок скрытый до lg размера
+        @include lg {
+            width: 16px;
+            height: 16px;
+            background: #24A3FF;
+            opacity: 0.2;
+            // !чтобы закруглить (размер умножаем на 0,5)
+            // border-radius: 16px * 0.5;
+            border-radius: 8px;
+        }
+
+        &.active {
+
+            // !include lg ставить НЕ ОБЯЗАТЕЛЬНО, у нас весь блок скрытый до lg размера
+            @include lg {
+                background: #24A3FF;
+                opacity: 1;
+            }
+
+        }
     }
 }
